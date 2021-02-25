@@ -7,7 +7,7 @@ Takes the folder location and desired makefile name as arguments
 User can then:
   1. Automatically configure makefile (currently only supports with .c files)
   2. Manually configure makefile (currently only supports .c files)
-  3. Change editor name (by default prints _UNLISTED_ in file heading)
+  3. Change editor name (by default prints __UNLISTED__ in file heading)
   4. Print generated file name (displays proposed makefile directory)
   0. Terminate program
 
