@@ -7,8 +7,6 @@
 #define QUIT (":q")
 
 int main(int argc, char *argv[]) {
-    // Home directory: C:\Users\Ara\OneDrive\Experiments_(OneDrive)\Makefile_Creator\Makefile_Creator_V1.1
-    // Test directory: C:\Users\Ara\OneDrive\CSCI_112_Projects_(OneDrive)\Programs\Program_1
 
     char* user = "_UNLISTED_";
     int option;
@@ -36,6 +34,15 @@ int main(int argc, char *argv[]) {
         exit(-2);
     }
 
+    printf("\nChecking file location...");
+    if (fopen(out_file_directory, "r") == NULL) {
+        printf("\nFile error: Location not found: \n %s\n\nInput does not appear to be a valid directory.\n"
+               "Terminating program...\n", out_file_directory);
+        exit(-3);
+    } else {
+        printf("\nFile location found.\n");
+    }
+
     printf("\nWelcome to the makefile creator!");
     boolean valid = TRUE;
     while(valid == TRUE) {
@@ -59,7 +66,9 @@ int main(int argc, char *argv[]) {
             case 2:
                 printf("Running manual configuration...");
                 r = manual_config(QUIT);
-                print_makefile(r, user, out_file_directory, argv[2]);
+                if (r.array_length > 1) {
+                    print_makefile(r, user, out_file_directory, argv[2]);
+                }
                 break;
             case 3:
                 printf("\nCurrent user set to %s.\nEnter desired user name or enter %s to cancel: ",
