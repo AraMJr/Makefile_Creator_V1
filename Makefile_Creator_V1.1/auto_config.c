@@ -29,7 +29,7 @@ struct return_values auto_config(char* file_directory) {
         closedir(file);
     } else {
         printf("\nInvalid path specified\nTerminating program...\n");
-        exit(-3);
+        exit(-4);
     }
     struct return_values r = {file_list, counter};
     return (r);
