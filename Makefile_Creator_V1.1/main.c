@@ -3,10 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 
 #define QUIT (":q")
 
 int main(int argc, char *argv[]) {
+    // Home directory: C:\Users\Ara\OneDrive\Experiments_(OneDrive)\Makefile_Creator\Makefile_Creator_V1.1
+    // Test directory: C:\Users\Ara\OneDrive\CSCI_112_Projects_(OneDrive)\Programs\Program_1
 
     char* user = "_UNLISTED_";
     int option;
@@ -28,6 +31,7 @@ int main(int argc, char *argv[]) {
     strcat(out_file_directory, "\\");
     strcat(out_file_directory, argv[2]);
     strcat(out_file_directory, "_makefile");
+
     if (out_file_directory[0] != argv[1][0]) {
         printf("\nFile error: File discrepancy detected: \n %s, \n %s\nTerminating program...\n",
                argv[1], out_file_directory);
@@ -35,12 +39,14 @@ int main(int argc, char *argv[]) {
     }
 
     printf("\nChecking file location...");
-    if (fopen(out_file_directory, "r") == NULL) {
+    DIR* dir = opendir(argv[1]);
+    if (dir) {
+        printf("\nFile location found.\n");
+        closedir(dir);
+    } else  {
         printf("\nFile error: Location not found: \n %s\n\nInput does not appear to be a valid directory.\n"
                "Terminating program...\n", out_file_directory);
         exit(-3);
-    } else {
-        printf("\nFile location found.\n");
     }
 
     printf("\nWelcome to the makefile creator!");
