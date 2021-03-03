@@ -8,8 +8,6 @@
 #define QUIT (":q")
 
 int main(int argc, char *argv[]) {
-    // Home directory: C:\Users\Ara\OneDrive\Experiments_(OneDrive)\Makefile_Creator\Makefile_Creator_V1.1
-    // Test directory: C:\Users\Ara\OneDrive\CSCI_112_Projects_(OneDrive)\Programs\Program_1
 
     char* user = "_UNLISTED_";
     int option;
