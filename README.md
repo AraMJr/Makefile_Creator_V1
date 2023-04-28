@@ -13,5 +13,5 @@ User can then:
 
 For the time being, this program only creates makefiles based on the format required for one of my classes (compiles with -Wall), but will soon expand to include a few others
 
-Update (3/2/21): main.c now checks to see if file location is valid before printing menu.
+Update 3/2/21: main.c now checks to see if file location is valid before printing menu.
 
